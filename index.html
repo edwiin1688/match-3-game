@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#0a0a1a">
     <meta name="description" content="網頁版波妞三消遊戲 (Match-3 Game) — 經典休閒益智遊戲，即開即玩！">
-    <title>Match-3 Game v0.2.0 — 波妞消消樂</title>
+    <title>Match-3 Game — 波妞消消樂</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style"
@@ -31,7 +31,7 @@
                 <h1 class="game-title">
                     <span class="title-gem">🐾</span> Match-3
                 </h1>
-                <p class="game-subtitle">波妞消消樂 <span style="opacity: 0.6; font-size: 0.8em;">v0.2.0</span></p>
+                <p class="game-subtitle">波妞消消樂 <span class="version" style="opacity: 0.6; font-size: 0.8em;">載入中...</span></p>
             </header>
 
             <button class="btn btn-mode" id="btn-timed" data-mode="timed">
@@ -101,6 +101,13 @@
         </div>
     </div>
 
+    <script>
+        fetch('package.json').then(r => r.json()).then(pkg => {
+            const v = pkg.version || '0.0.0';
+            document.title = document.title.replace(/v\d+\.\d+\.\d+/, 'v' + v);
+            document.querySelectorAll('.version').forEach(el => el.textContent = v);
+        }).catch(() => {});
+    </script>
     <script type="module" src="js/main.js"></script>
 </body>
 
