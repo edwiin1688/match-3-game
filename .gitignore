@@ -1,0 +1,14 @@
+node_modules/
+.git/
+.python-version
+CHANGELOG.md
+GEMINI.md
+GODOT_PORTING_GUIDE.md
+LICENSE
+opencode.json
+PRD.md
+README.md
+setup_git_sync.ps1
+wrangler.jsonc
+.opencode/
+.wrangler/
